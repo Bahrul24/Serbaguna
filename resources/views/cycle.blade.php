@@ -72,9 +72,14 @@
                 @endforeach
             </div>
         </div>
-        <div class="read_btn_main">
-            <div class="read_bt"><a href="#">Read More</a></div>
-        </div>
+        <!-- Pagination -->
+        <!-- Pagination -->
+<div class="read_btn_main">
+    <div class="read_bt">
+        {{ $products->links('vendor.pagination.default') }}
+    </div>
+</div>
+
     </div>
 </div>
 <!-- cycle section end -->

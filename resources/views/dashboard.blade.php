@@ -21,7 +21,7 @@
                             <div class="col-md-5">
                                 <h1 class="banner_taital">New Model Cycle</h1>
                                 <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content.</p>
-                                <div class="contact_bt"><a href="contact.html">Shop Now</a></div>
+                                <div class="contact_bt"><a href="cycle">Shop Now</a></div>
                             </div>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                             <div class="col-md-5">
                                 <h1 class="banner_taital">New Model Cycle</h1>
                                 <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content.</p>
-                                <div class="contact_bt"><a href="contact.html">Shop Now</a></div>
+                                <div class="contact_bt"><a href="cycle">Shop Now</a></div>
                             </div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                             <div class="col-md-5">
                                 <h1 class="banner_taital">New Model Cycle</h1>
                                 <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content.</p>
-                                <div class="contact_bt"><a href="contact.html">Shop Now</a></div>
+                                <div class="contact_bt"><a href="cycle">Shop Now</a></div>
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
         <div class="about_main">
             <img src="images/indomie.jpg" class="image_5" alt="About Cycle">
         </div>
-        <div class="read_bt_1"><a href="#">Read More</a></div>
+        <div class="read_bt_1"><a href="">Read More</a></div>
     </div>
 </div>
 <!-- about section end -->

@@ -39,7 +39,7 @@ class HomeController extends Controller
     public function product()
     {
         // Get all products from the database
-        $products = Product::all();
+        $products = Product::paginate(5); // Mengambil 12 produk per halaman
 
         // Pass the products data to the `cycle` view
         return view('cycle', compact('products'));
@@ -61,7 +61,7 @@ class HomeController extends Controller
     // Show all products (can be used on the product listing page)
     public function showProducts()
     {
-        $products = Product::all(); // Get all products from the database
+        $products = Product::paginate(5); // Mengambil 12 produk per halaman
         return view('manage-products', compact('products'));
     }
 
@@ -199,7 +199,7 @@ class HomeController extends Controller
 
     public function showCyclePage()
     {
-        $products = Product::all();  // Atau sesuaikan dengan query yang Anda butuhkan
+        $products = Product::paginate(5); // Mengambil 12 produk per halaman
         return view('cycle', compact('products'));
     }
 

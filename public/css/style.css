@@ -462,10 +462,17 @@ button {
 }
 .image_2 {
     width: 100%;
-    float: left;
-    text-align: center;
-    padding-left: 100px;
+    max-width: 300px; /* Atur lebar maksimum gambar */
+    height: 200px; /* Atur tinggi gambar */
+    object-fit: cover; /* Memastikan gambar proporsional */
+    margin: 0 auto; /* Pusatkan gambar */
+    padding: 10px; /* Tambahkan jarak antar elemen */
+    border: 1px solid #ddd; /* Tambahkan border untuk estetika */
+    border-radius: 8px; /* Membuat sudut gambar melengkung */
+    background-color: #f9f9f9; /* Tambahkan latar belakang agar terlihat rapi */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Berikan efek bayangan */
 }
+
 .box_main:after{
     content: '';
     background-color: #f7c17b;
@@ -821,95 +828,7 @@ box-shadow: 0px 8px 7px 3px
 
 /* client section end */
 
-/* news section start*/
-.news_section{
-    width: 100%;
-    float: left;
-    background-color: #355764;
-    height: auto;
-    padding: 90px 0px;
-}
-.news_taital{
-   width: 100%;
-    font-size: 40px;
-    color: #ffffff;
-    text-align: center;
-    font-weight: bold;
-}
 
-.news_text {
-    width: 80%;
-    margin: 0 auto;
-    font-size: 16px;
-    color: #ffffff;
-    padding-top: 20px;
-    text-align: center;
-
-}
-.news_section_2{
-    width: 100%;
-    float: left;
-}
-.box_main_1 {
-    width: 100%;
-    float: left;
-    background-color: #ffffff;
-    height: auto;
-    border-radius: 5px;
-}
-.box_main_1:hover {
-    box-shadow: 0px 1px 9px 1px #fff;
-}
-
-.frame {
-      height: 200px;
-      width: 100%;
-      overflow: hidden;
-    }
-    .zoomout img {
-      height: 300px;
-      width: 100%;
-      -webkit-transition: all 2s ease;
-      -moz-transition: all 2s ease;
-      -ms-transition: all 2s ease;
-        transition: all 2s ease;
-    }
-    .zoomout img:hover {
-      width: 100%;
-      height:500px;
-    }
-
-.box_main_1:hover {
-    box-shadow: 0px 1px 9px 1px #fff;
-}
-.box_main_1:hover .post_text{
-    color: #000;
-}
-.padding_15 {
-    width: 100%;
-    float: left;
-    padding: 20px 15px 40px 15px;
-}
-.speed_text{
-    width: 100%;
-    float: left;
-    font-size: 22px;
-    color: #161616;
-}
-.post_text{
-    width: 100%;
-    float: left;
-    font-size: 16px;
-    color: #dcdcd9;
-}
-.long_text {
-    width: 100%;
-    float: left;
-    font-size: 16px;
-    color: #2a2929;
-    margin: 0px;
-    padding-top: 10px;
-}
 
 /* news section start*/
 
@@ -1176,6 +1095,7 @@ textarea#comment::placeholder {
     padding: 10px 0;
     text-align: center;
 }
+
 
 .card {
     border-radius: 15px;

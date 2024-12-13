@@ -16,41 +16,43 @@
         }
     }; ?>
 
-    <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
-        <!-- Primary Navigation Menu -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex">
-                    <!-- Logo -->
-                    <div class="shrink-0 flex items-center">
-                        <a href="{{ route('dashboard') }}" wire:navigate>
-                            <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-                        </a>
-                    </div>
-
-                    <!-- Navigation Links -->
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        @if(auth()->user() && auth()->user()->hasRole('admin')) 
-                        <x-nav-link :href="route('products.manage')" :active="request()->routeIs('products.manage')" wire:navigate>
-                            {{ __('CRUD') }}
-                        </x-nav-link>
-                        @else
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
-                            {{ __('Home') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('home.cycle')" :active="request()->routeIs('home.cycle')" wire:navigate>
-                            {{ __('Product') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('cart.index')" :active="request()->routeIs('cart.index')" wire:navigate>
-                            {{ __('Cart') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('home.contact')" :active="request()->routeIs('home.contact')" wire:navigate>
-                            {{ __('Contact Us') }}
-                        </x-nav-link>                    
-                        @endif
-                    </div>
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+    <!-- Primary Navigation Menu -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex">
+                <!-- Logo -->
+                <div class="shrink-0 flex items-center">
+                    <a href="{{ route('dashboard') }}" wire:navigate>
+                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                    </a>
                 </div>
 
+                <!-- Navigation Links -->
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <!-- Home link for both admin and user -->
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
+                        {{ __('Home') }}
+                    </x-nav-link>
+
+                    @if(auth()->user() && auth()->user()->hasRole('admin')) 
+                    <x-nav-link :href="route('products.manage')" :active="request()->routeIs('products.manage')" wire:navigate>
+                        {{ __('CRUD') }}
+                    </x-nav-link>
+                    @else
+                    <x-nav-link :href="route('home.cycle')" :active="request()->routeIs('home.cycle')" wire:navigate>
+                        {{ __('Product') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('cart.index')" :active="request()->routeIs('cart.index')" wire:navigate>
+                        {{ __('Cart') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('home.contact')" :active="request()->routeIs('home.contact')" wire:navigate>
+                        {{ __('Contact Us') }}
+                    </x-nav-link>                    
+                    @endif
+                </div>
+            </div>
+            
                 <!-- Settings Dropdown -->
                 <div class="hidden sm:flex sm:items-center sm:ms-6">
                     <x-dropdown align="right" width="48">
@@ -93,26 +95,30 @@
             </div>
         </div>
 
-        <!-- Responsive Navigation Menu -->
-        <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-            <div class="pt-2 pb-3 space-y-1">
-                @if(auth()->user() && auth()->user()->hasRole('admin')) 
-                <x-nav-link :href="route('products.manage')" :active="request()->routeIs('products.manage')" wire:navigate>
-                    {{ __('CRUD') }}
-                </x-nav-link>
-                @else
-                <x-responsive-nav-link :href="route('home.cycle')" :active="request()->routeIs('home.cycle')" wire:navigate>
-                    {{ __('Product') }}
-                </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('cart.index')" :active="request()->routeIs('cart.index')" wire:navigate>
-                    {{ __('Cart') }}
-                </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('home.contact')" :active="request()->routeIs('home.contact')" wire:navigate>
-                    {{ __('Contact Us') }}
-                </x-responsive-nav-link>    
-                @endif
-                
-            </div>
+         <!-- Responsive Navigation Menu -->
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+        <div class="pt-2 pb-3 space-y-1">
+            <!-- Home link for both admin and user -->
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
+                {{ __('Home') }}
+            </x-responsive-nav-link>
+
+            @if(auth()->user() && auth()->user()->hasRole('admin')) 
+            <x-nav-link :href="route('products.manage')" :active="request()->routeIs('products.manage')" wire:navigate>
+                {{ __('CRUD') }}
+            </x-nav-link>
+            @else
+            <x-responsive-nav-link :href="route('home.cycle')" :active="request()->routeIs('home.cycle')" wire:navigate>
+                {{ __('Product') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('cart.index')" :active="request()->routeIs('cart.index')" wire:navigate>
+                {{ __('Cart') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('home.contact')" :active="request()->routeIs('home.contact')" wire:navigate>
+                {{ __('Contact Us') }}
+            </x-responsive-nav-link>    
+            @endif
+        </div>
 
             <!-- Responsive Settings Options -->
             <div class="pt-4 pb-1 border-t border-gray-200">
