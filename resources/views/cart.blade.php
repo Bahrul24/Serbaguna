@@ -26,7 +26,7 @@
                                 <tr>
                                     <td class="p-4">
                                         <div class="media align-items-center">
-                                            <img src="{{ asset($details['image']) }}" class="d-block ui-w-40 ui-bordered mr-4" alt="{{ $details['name'] }}">
+                                            <img src="{{ asset('storage/' . $details['image']) }}" alt="{{ $details['name'] }}" class="d-block ui-w-40 ui-bordered mr-4">
                                             <div class="media-body">
                                                 <a href="#" class="d-block text-dark">{{ $details['name'] }}</a>
                                             </div>

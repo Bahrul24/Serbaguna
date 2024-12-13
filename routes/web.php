@@ -58,11 +58,5 @@ Route::view('profile', 'profile')
     ->name('profile');
 
 
-    // Route::middleware('role:admin')->group(function () {
-    //     Route::get('/adminRoom', function () {
-    //         return view('customerverifed.admin-dashboard');
-    //     })->name('admin.dashboard');
-    // });
-
 // Menggunakan file auth.php untuk rute terkait otentikasi
 require __DIR__.'/auth.php';

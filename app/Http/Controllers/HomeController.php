@@ -197,8 +197,6 @@ class HomeController extends Controller
         return view('create');
     }
 
-  
-
     public function showCyclePage()
     {
         $products = Product::all();  // Atau sesuaikan dengan query yang Anda butuhkan

@@ -42,4 +42,10 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
         // Anda bisa menambahkan klaim khusus di sini jika diperlukan
         return [];
     }
+
+    public function hasRole($role)
+    {
+        return $this->roles->contains('name', $role);
+    }
+
 }

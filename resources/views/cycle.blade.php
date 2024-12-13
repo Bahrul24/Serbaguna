@@ -16,8 +16,6 @@
                                     <div class="best_text">Best</div>
                                     <div class="image_1">
                                     <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
-
-
                                     </div>
                                 </div>
                                 <div class="col-md-5">
