@@ -53,45 +53,6 @@
         </div>
     </div>
 
-    <!-- Footer Section -->
-    <div class="footer_section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h4>About Us</h4>
-                    <p>We provide high-quality cycles designed to meet your needs and style. Join us for an amazing cycling experience.</p>
-                </div>
-                <div class="col-md-4">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="cycle.html">Our Cycle</a></li>
-                        <li><a href="shop.html">Shop</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h4>Contact Us</h4>
-                    <p><i class="fa fa-map-marker-alt"></i> 123 Cycle Street, Cityname</p>
-                    <p><i class="fa fa-phone-alt"></i> +1 234 567 890</p>
-                    <p><i class="fa fa-envelope"></i> info@cycle.com</p>
-                    <div class="social_icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Copyright Section -->
-    <div class="copyright_section">
-        <p>Copyright © 2019 All Rights Reserved By Cycle.</p>
-    </div>
-
     <!-- Scripts -->
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
