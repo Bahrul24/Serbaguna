@@ -3,13 +3,16 @@
 @section('title', 'Cart')
 
 @section('content')
+
 <div class="container px-3 my-5 clearfix">
     <div class="card">
         <div class="card-header">
             <h2>Shopping Cart</h2>
         </div>
         <div class="card-body">
-            @if($cart && count($cart) > 0)
+
+            {{-- Pastikan ini sudah memeriksa $cartItemCount --}}
+            @if($cartItems->count() > 0)
                 <div class="table-responsive">
                     <table class="table table-bordered m-0">
                         <thead>
@@ -22,25 +25,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($cart as $productId => $details)
+                            @foreach($cartItems as $item)
                                 <tr>
                                     <td class="p-4">
                                         <div class="media align-items-center">
-                                            <img src="{{ asset('storage/' . $details['image']) }}" alt="{{ $details['name'] }}" class="d-block ui-w-40 ui-bordered mr-4">
+                                            <img src="{{ asset('storage/' . $item->product->image) }}" alt="{{ $item->product->name }}" class="d-block ui-w-40 ui-bordered mr-4">
                                             <div class="media-body">
-                                                <a href="#" class="d-block text-dark">{{ $details['name'] }}</a>
+                                                <a href="#" class="d-block text-dark">{{ $item->product->name }}</a>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="text-right align-middle p-4">
-                                        ${{ number_format($details['price'], 2) }}
+                                        ${{ number_format($item->price, 2) }}
                                     </td>
-                                    <td class="align-middle p-4">{{ $details['quantity'] }}</td>
+                                    <td class="align-middle p-4">{{ $item->quantity }}</td>
                                     <td class="text-right align-middle p-4">
-                                        ${{ number_format($details['price'] * $details['quantity'], 2) }}
+                                        ${{ number_format($item->price * $item->quantity, 2) }}
                                     </td>
                                     <td class="text-center align-middle px-0">
-                                        <a href="{{ route('cart.remove', $productId) }}" class="text-danger" title="Hapus">×</a>
+                                        <a href="{{ route('cart.remove', $item->product_id) }}" class="text-danger" title="Hapus">×</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -53,4 +56,5 @@
         </div>
     </div>
 </div>
+
 @endsection

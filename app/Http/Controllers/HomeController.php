@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Product; // Import model Product
 use App\Models\User;
 use Spatie\Permission\Models\Role;
+use App\Models\Cart;
+use App\Models\CartItem;
 
 
 class HomeController extends Controller
@@ -39,7 +41,7 @@ class HomeController extends Controller
     public function product()
     {
         // Get all products from the database
-        $products = Product::paginate(5); // Mengambil 12 produk per halaman
+        $products = Product::paginate(10);
 
         // Pass the products data to the `cycle` view
         return view('cycle', compact('products'));
@@ -53,63 +55,93 @@ class HomeController extends Controller
 
     // Method for the Cart page
     public function cart()
-    {
-        $cart = session()->get('cart', []);
-        return view('cart', compact('cart'));
-    }
+{
+    $cart = session()->get('cart', []);
+    $cartItems = collect($cart); // Mengubah array menjadi koleksi
+
+    // Menghitung jumlah item dalam cart
+    $cartItemCount = $cartItems->count();
+
+    // Debug output
+    dd($cartItemCount); // Memastikan bahwa nilai ini diteruskan ke view
+
+    return view('cart', compact('cartItems', 'cartItemCount'));
+}
+
+
 
     // Show all products (can be used on the product listing page)
     public function showProducts()
     {
-        $products = Product::paginate(5); // Mengambil 12 produk per halaman
+        $products = Product::paginate(10);
         return view('manage-products', compact('products'));
     }
 
     // Add product to the cart
     public function addToCart($productId)
-    {
-        $product = Product::findOrFail($productId);
-        $cart = session()->get('cart', []);
+{
+    $product = Product::findOrFail($productId);
 
-        // If product is already in the cart, increase the quantity
-        if (isset($cart[$productId])) {
-            $cart[$productId]['quantity']++;
-        } else {
-            // Add the product to the cart
-            $cart[$productId] = [
-                'name' => $product->name,
-                'price' => $product->price,
-                'quantity' => 1,
-                'image' => $product->image,
-            ];
-        }
+    // Ambil cart pengguna yang sedang login
+    $cart = Cart::firstOrCreate(['user_id' => auth()->id()]);
 
-        // Save the cart data to the session
-        session()->put('cart', $cart);
+    // Periksa apakah produk sudah ada di cart
+    $cartItem = CartItem::where('cart_id', $cart->id)
+                        ->where('product_id', $productId)
+                        ->first();
 
-        return redirect()->route('cart.index'); // Ensure the route name matches with your routes/web.php
+    if ($cartItem) {
+        // Jika produk sudah ada, update jumlahnya
+        $cartItem->quantity++;
+        $cartItem->save();
+    } else {
+        // Jika produk belum ada, tambahkan ke cart
+        CartItem::create([
+            'cart_id' => $cart->id,
+            'product_id' => $productId,
+            'quantity' => 1,
+            'price' => $product->price
+        ]);
     }
+
+    return redirect()->route('cart.index');
+}
 
     // Show the Cart page
     public function showCart()
-    {
-        $cart = session()->get('cart', []); // Retrieve the cart from the session
-        return view('cart', compact('cart')); // Ensure the view is cart/index.blade.php
-    }
+{
+    $cart = Cart::where('user_id', auth()->id())->first();
+    $cart = Cart::where('user_id', auth()->id())->first();
+    $cartItems = $cart ? $cart->items : collect();  // Gunakan collect() jika itu adalah array
+
+    $cartItemCount = $cartItems->count();  // Menghitung jumlah item
+
+    return view('cart', compact('cartItems', 'cartItemCount'));
+}
+    
+
 
     // Remove product from the cart
     public function removeFromCart($productId)
-    {
-        $cart = session()->get('cart', []);
+{
+    // Ambil cart pengguna yang sedang login
+    $cart = Cart::where('user_id', auth()->id())->first();
 
-        // If the product exists in the cart, remove it
-        if (isset($cart[$productId])) {
-            unset($cart[$productId]);
-            session()->put('cart', $cart); // Save the updated cart to the session
+    if ($cart) {
+        // Cari item di dalam cart
+        $cartItem = CartItem::where('cart_id', $cart->id)
+                            ->where('product_id', $productId)
+                            ->first();
+
+        // Hapus item jika ditemukan
+        if ($cartItem) {
+            $cartItem->delete();
         }
-
-        return redirect()->route('cart.index'); // Ensure the route name matches with your routes/web.php
     }
+
+    return redirect()->route('cart.index');
+}
+
 
     // Create a new product (form view)
     public function createProduct()
@@ -199,7 +231,7 @@ class HomeController extends Controller
 
     public function showCyclePage()
     {
-        $products = Product::paginate(5); // Mengambil 12 produk per halaman
+        $products = Product::paginate(10);
         return view('cycle', compact('products'));
     }
 

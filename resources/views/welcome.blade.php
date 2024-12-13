@@ -31,10 +31,6 @@
 
 </head>
 
-<style>
-    
-</style>
-
 <body>
 
     <div class="d-flex justify-content-center align-items-center min-vh-100">
