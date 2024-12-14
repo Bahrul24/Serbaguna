@@ -34,12 +34,7 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Home') }}
                     </x-nav-link>
-
-                    @if(auth()->user() && auth()->user()->hasRole('admin')) 
-                    <x-nav-link :href="route('products.manage')" :active="request()->routeIs('products.manage')" wire:navigate>
-                        {{ __('CRUD') }}
-                    </x-nav-link>
-                    @else
+                    
                     <x-nav-link :href="route('home.cycle')" :active="request()->routeIs('home.cycle')" wire:navigate>
                         {{ __('Product') }}
                     </x-nav-link>
@@ -49,6 +44,13 @@
                     <x-nav-link :href="route('home.contact')" :active="request()->routeIs('home.contact')" wire:navigate>
                         {{ __('Contact Us') }}
                     </x-nav-link>                    
+                    @if(auth()->user() && auth()->user()->hasRole('admin')) 
+                    <x-nav-link :href="route('products.manage')" :active="request()->routeIs('products.manage')" wire:navigate>
+                        {{ __('CRUD') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('contact.list')" :active="request()->routeIs('contact.list')" wire:navigate>
+                        {{ __('Contact List') }}
+                    </x-nav-link>
                     @endif
                 </div>
             </div>
@@ -101,13 +103,7 @@
             <!-- Home link for both admin and user -->
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
                 {{ __('Home') }}
-            </x-responsive-nav-link>
-
-            @if(auth()->user() && auth()->user()->hasRole('admin')) 
-            <x-nav-link :href="route('products.manage')" :active="request()->routeIs('products.manage')" wire:navigate>
-                {{ __('CRUD') }}
-            </x-nav-link>
-            @else
+            </x-responsive-nav-link>            
             <x-responsive-nav-link :href="route('home.cycle')" :active="request()->routeIs('home.cycle')" wire:navigate>
                 {{ __('Product') }}
             </x-responsive-nav-link>
@@ -117,6 +113,14 @@
             <x-responsive-nav-link :href="route('home.contact')" :active="request()->routeIs('home.contact')" wire:navigate>
                 {{ __('Contact Us') }}
             </x-responsive-nav-link>    
+            @if(auth()->user() && auth()->user()->hasRole('admin')) 
+            <x-responsive-nav-link :href="route('products.manage')" :active="request()->routeIs('products.manage')" wire:navigate>
+                {{ __('CRUD') }}
+            </x-responsive-nav-link>  
+            <x-responsive-nav-link :href="route('contact.list')" :active="request()->routeIs('contact.list')" wire:navigate>
+                {{ __('Contact List') }}
+            </x-responsive-nav-link>  
+            
             @endif
         </div>
 

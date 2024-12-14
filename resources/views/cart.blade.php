@@ -50,6 +50,11 @@
                         </tbody>
                     </table>
                 </div>
+
+                {{-- Tombol Checkout --}}
+                <div class="d-flex justify-content-end mt-3">
+                    <a href="{{ route('checkout') }}" class="btn btn-primary">Checkout</a>
+                </div>
             @else
                 <p class="text-center">Keranjang belanja kosong.</p>
             @endif
@@ -57,4 +62,4 @@
     </div>
 </div>
 
-@endsection
+@endsection  

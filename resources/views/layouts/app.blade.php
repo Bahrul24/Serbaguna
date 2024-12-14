@@ -66,14 +66,6 @@
                         <p>We provide high-quality cycles designed to meet your needs and style. Join us for an amazing cycling experience.</p>
                     </div>
                     <div class="col-md-4">
-                        <h4>Quick Links</h4>
-                        <ul>
-                            <li><a href="{{ route('home.index') }}">Home</a></li>
-                            <li><a href="{{ route('home.cycle') }}">Our Cycle</a></li>
-                            <li><a href="{{ route('home.about') }}">About Us</a></li>
-                            <li><a href="{{ route('home.contact') }}">Contact</a></li>
-                            
-                        </ul>
                     </div>
                     <div class="col-md-4">
                         <h4>Contact Us</h4>

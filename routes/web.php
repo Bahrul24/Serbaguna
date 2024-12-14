@@ -29,10 +29,17 @@ Route::get('/cycle', [HomeController::class, 'product'])->name('home.cycle');
 // Halaman Kontak
 Route::get('/contact', [HomeController::class, 'contact'])->name('home.contact');
 
+// Halaman Keranjang
 Route::get('/cart', [HomeController::class, 'showCart'])->name('cart.index');
 Route::get('/cart/add/{id}', [HomeController::class, 'addToCart'])->name('cart.add');
 Route::get('/cart/remove/{id}', [HomeController::class, 'removeFromCart'])->name('cart.remove');
 
+// Halaman Checkout
+Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
+Route::post('/checkout/process', [HomeController::class, 'processCheckout'])->name('checkout.process');
+
+
+// Halaman CRUD
 Route::get('/products/manage', [HomeController::class, 'manageProducts'])->name('products.manage');
 Route::get('/products/{id}/edit', [HomeController::class, 'edit'])->name('products.edit');
 Route::delete('/products/{product}', [HomeController::class, 'destroy'])->name('products.destroy');
@@ -42,8 +49,12 @@ Route::get('/products/create', [HomeController::class, 'create'])->name('product
 Route::post('/products', [HomeController::class, 'store'])->name('products.store');
 Route::get('/products', [HomeController::class, 'index'])->name('products.index');
 
+// Halaman Data Contact
+Route::post('/contact/submit', [HomeController::class, 'storeContact'])->name('contact.submit');
+Route::get('/contact/list', [HomeController::class, 'listContacts'])->name('contact.list');
+Route::delete('/contact/{id}', [HomeController::class, 'deleteContact'])->name('contact.delete');
 
-
+// Membuat Admid
 Route::get('/make-admin', [HomeController::class, 'makeAdmin']);
 
 
@@ -57,8 +68,6 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
     
-
-
 
 // Menggunakan file auth.php untuk rute terkait otentikasi
 require __DIR__.'/auth.php';
