@@ -2,63 +2,145 @@
 <html lang="en">
 
 <head>
-    <!-- Basic -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indomie Lovers</title>
 
-    <!-- Site Meta -->
-    <title>News</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
+    <!-- Meta Tags -->
+    <meta name="keywords" content="Indomie, makanan favorit, mie instan">
+    <meta name="description" content="Nikmati berbagai rasa Indomie favorit Anda hanya di Indomie Lovers.">
+    <meta name="author" content="Indomie Lovers Team">
+    <!-- Favicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/png">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="icon" href="images/fevicon.png" type="image/gif" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Raleway:wght@400;700&display=swap"
-        rel="stylesheet">
-    <!-- Owl Carousel -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Owl Carousel CSS -->
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <!-- Custom Inline Styles -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
 
+        .banner-section {
+            background: linear-gradient(to bottom, #6a8d9c, #a4c9d7); /* Gradasi dari lebih gelap ke lebih terang */
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .banner-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .banner-text {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+
+        .btn-custom {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-custom:hover {
+            transform: scale(1.1);
+        }
+
+        .btn-login {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .btn-register {
+            background-color: #ffc107;
+            color: #fff;
+        }
+
+        .btn-dashboard {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .banner-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .banner-title {
+                font-size: 2rem;
+            }
+
+            .banner-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-    <div class="d-flex justify-content-center align-items-center min-vh-100">
-        <div class="text-center p-5 bg-white rounded shadow-lg w-100 w-md-50">
-            <h1 class="header-title display-4 mb-4">Selamat datang di Websitesaya</h1>
-            <p class="lead text-muted mb-4">Kami senang Anda di sini! Jika sudah memiliki akun, Anda bisa langsung masuk.
-                Jika belum, silakan daftar untuk memulai.</p>
-
-            <div class="d-grid gap-3">
-                @auth
-                    <a href="{{ url('/dashboard') }}" class="btn btn-primary btn-lg">Dashboard</a>
-                @else
-                    <a href="{{ route('login') }}" class="btn btn-success btn-lg">Login</a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="btn btn-warning btn-lg">Register</a>
-                    @endif
-                @endauth
+    <!-- Banner Section -->
+    <div class="banner-section">
+        <div id="main-slider" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <h1 class="banner-title">Indomie Lovers</h1>
+                                <p class="banner-text">Nikmati berbagai rasa favorit Anda. Ayo pesan sekarang!</p>
+                                @auth
+                                <a href="{{ url('/dashboard') }}" class="btn btn-custom btn-dashboard">Dashboard</a>
+                                @else
+                                <a href="{{ route('login') }}" class="btn btn-custom btn-login">Login</a>
+                                @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="btn btn-custom btn-register">Register</a>
+                                @endif
+                                @endauth
+                            </div>
+                            <div class="col-md-6 banner-image">
+                                <img src="images/logo.png" alt="Indomie Lovers">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tambahkan slide lain jika diperlukan -->
             </div>
+            <!-- Navigation Controls -->
+            <a class="carousel-control-prev" href="#main-slider" role="button" data-slide="prev">
+                <i class="fa fa-angle-left fa-2x"></i>
+            </a>
+            <a class="carousel-control-next" href="#main-slider" role="button" data-slide="next">
+                <i class="fa fa-angle-right fa-2x"></i>
+            </a>
         </div>
     </div>
-
     <!-- Scripts -->
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/owl.carousel.js"></script>
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
     <script src="js/custom.js"></script>
 </body>
 
