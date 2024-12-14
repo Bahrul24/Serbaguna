@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\Auth\SosialiteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |---------------------------------------------------------------------------
@@ -57,6 +60,14 @@ Route::delete('/contact/{id}', [HomeController::class, 'deleteContact'])->name('
 // Membuat Admid
 Route::get('/make-admin', [HomeController::class, 'makeAdmin']);
 
+// Login Google
+Route::middleware(['web'])->group(function () {
+    Route::get('login/google', [LoginController::class, 'redirectToGoogle'])->name('login.google');
+    Route::get('login/google/callback', [LoginController::class, 'handleGoogleCallback'])->name('login.google.callback');
+    Route::view('dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard');
+});
+
+
 
 // Halaman Dashboard (dengan middleware auth dan verified)
 Route::view('dashboard', 'dashboard')
@@ -68,6 +79,7 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
     
-
+    
+    
 // Menggunakan file auth.php untuk rute terkait otentikasi
 require __DIR__.'/auth.php';

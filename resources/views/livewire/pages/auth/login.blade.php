@@ -26,6 +26,9 @@ new #[Layout('layouts.guest')] class extends Component
 }; ?>
 
 <div>
+    <!-- Teks "Login" di atas form -->
+    <h2 class="text-2xl font-semibold text-center mb-4">{{ __('Login') }}</h2>
+
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -33,14 +36,14 @@ new #[Layout('layouts.guest')] class extends Component
         <!-- Email Address -->
         <div class="mb-4">
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input wire:model="form.email" id="email" class="block mt-1 w-full rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm" type="email" name="email" required autofocus autocomplete="username" />
+            <x-text-input wire:model="form.email" id="email" class="block mt-1 w-full rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm" type="email" name="email" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('form.email')" class="mt-2 text-sm text-red-500" />
         </div>
 
         <!-- Password -->
         <div class="mb-4">
             <x-input-label for="password" :value="__('Password')" />
-            <x-text-input wire:model="form.password" id="password" class="block mt-1 w-full rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm" type="password" name="password" required autocomplete="current-password" />
+            <x-text-input wire:model="form.password" id="password" class="block mt-1 w-full rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm" type="password" name="password" required autocomplete="current-password" />
             <x-input-error :messages="$errors->get('form.password')" class="mt-2 text-sm text-red-500" />
         </div>
 
@@ -62,6 +65,15 @@ new #[Layout('layouts.guest')] class extends Component
             <x-primary-button class="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                 {{ __('Log in') }}
             </x-primary-button>
+        </div>
+
+        <!-- Tombol Login Google -->
+        <div class="flex items-center justify-center mt-4">
+        <a href="{{ route('login.google') }}" class="px-6 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+            <!-- Gambar Logo Google -->
+            <img src="{{ asset('images/google.png') }}" alt="Google Logo" class="inline-block w-6 h-6 mr-2">
+            {{ __('Login with Google') }}
+        </a>
         </div>
     </form>
 </div>

@@ -66,12 +66,10 @@
         }
 
         .btn-login {
-            background-color: #28a745;
             color: #fff;
         }
 
         .btn-register {
-            background-color: #ffc107;
             color: #fff;
         }
 
@@ -80,12 +78,24 @@
             color: #fff;
         }
 
+        .banner-image {
+            background: linear-gradient(45deg, #f7c17b, #ffcc66); /* Gradasi linear dengan sudut 45 derajat */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transform: skew(-20deg); /* Efek miring untuk bentuk jajar genjang */
+            overflow: hidden; /* Menghindari konten keluar dari batas */
+        }
+
         .banner-image img {
             max-width: 100%;
             height: auto;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            transform: skew(20deg); /* Menyeimbangkan efek skew pada gambar */
         }
+
+
 
         @media (max-width: 768px) {
             .banner-title {

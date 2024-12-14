@@ -37,6 +37,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
+    
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
             <!-- Navigation -->
@@ -58,30 +59,37 @@
         </div>
 
         <!-- Footer Section -->
-        <div class="footer_section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <h4>About Us</h4>
-                        <p>We provide high-quality cycles designed to meet your needs and style. Join us for an amazing cycling experience.</p>
-                    </div>
-                    <div class="col-md-4">
-                    </div>
-                    <div class="col-md-4">
-                        <h4>Contact Us</h4>
-                        <p><i class="fa fa-map-marker"></i> 123 Cycle Street, Cityname</p>
-                        <p><i class="fa fa-phone"></i> +1 234 567 890</p>
-                        <p><i class="fa fa-envelope"></i> info@cycle.com</p>
-                        <div class="social_icons">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                        </div>
+        <footer class="footer_section bg-dark text-white py-5 mt-8">
+        <div class="container">
+            <div class="row">
+                <!-- About Us -->
+                <div class="col-md-4 mb-4">
+                    <h4 class="text-uppercase">About Us</h4>
+                    <p>We provide high-quality cycles designed to meet your needs and style. Join us for an amazing cycling experience.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-md-4 mb-4">
+                </div>
+
+                <!-- Contact Us -->
+                <div class="col-md-4 mb-4">
+                    <h4 class="text-uppercase">Contact Us</h4>
+                    <p><i class="fa fa-map-marker"></i> 123 Cycle Street, Cityname</p>
+                    <p><i class="fa fa-phone"></i> +1 234 567 890</p>
+                    <p><i class="fa fa-envelope"></i> info@cycle.com</p>
+                    
+                    <!-- Social Media -->
+                    <div class="social_icons">
+                        <a href="#" class="text-white"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="text-white"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fa fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
         </div>
+        </footer>
 
         <!-- Copyright Section -->
         <div class="copyright_section">

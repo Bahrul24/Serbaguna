@@ -38,6 +38,9 @@ new #[Layout('layouts.guest')] class extends Component
 }; ?>
 
 <div>
+    <!-- Teks "Register" di atas form -->
+    <h2 class="text-2xl font-semibold text-center mb-4">{{ __('Register') }}</h2>
+
     <form wire:submit="register">
         <!-- Name -->
         <div>

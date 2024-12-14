@@ -965,9 +965,6 @@ textarea#comment::placeholder {
     background-color: #ffffff;
 }
 
-
-
-
 .call_text a{
     color: #dfdfdf;
 }
@@ -1106,3 +1103,6 @@ textarea#comment::placeholder {
 img.rounded {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+
+
