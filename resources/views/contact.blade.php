@@ -8,7 +8,7 @@
 <div class="contact_section layout_padding" style="background-color: #f9f9f9; padding: 50px 0;">
     <div class="container">
         <div class="contact_main" style="max-width: 600px; margin: 0 auto; background: #fff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 30px;">
-            <h1 class="request_text" style="text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 20px; color: #333;">Request a Call Back</h1>
+            <h1 class="request_text" style="text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 20px; color: #333;">Kritik & Saran</h1>
 
             <!-- Tampilkan pesan sukses jika ada -->
             @if(session('success'))
@@ -51,7 +51,7 @@
                 </div>
 
                 <button type="submit" class="send_btn" style="width: 100%; background-color: #007BFF; color: #fff; border: none; padding: 12px; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background-color 0.3s;">
-                    SEND
+                    KIRIM
                 </button>
             </form>
         </div>

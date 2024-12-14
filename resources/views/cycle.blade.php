@@ -22,7 +22,7 @@
                                     <h1 class="banner_taital">{{ $product->name }}</h1>
                                     <p class="banner_text">{{ $product->description }}</p>
                                     <div class="contact_bt">
-                                        <a href="{{ route('cart.add', $product->id) }}">Add to cart</a>
+                                        <a href="{{ route('cart.add', $product->id) }}">->Keranjang</a>
                                     </div>
                                 </div>
                             </div>
@@ -43,8 +43,8 @@
 <!-- cycle section start -->
 <div class="cycle_section layout_padding">
     <div class="container">
-        <h1 class="cycle_taital">Our Cycle</h1>
-        <p class="cycle_text">It is a long established fact that a reader will be distracted by the</p>
+        <h1 class="cycle_taital">Sumber Alam</h1>
+        <p class="cycle_text">Belanja Hemat, Hidup Lebih Nyaman</p>
         <div class="cycle_section_2 layout_padding">
             <div class="row">
                 @foreach ($products as $product)
@@ -61,10 +61,10 @@
                         <p class="lorem_text">{{ $product->description }}</p>
                         <div class="btn_main">
                             <div class="contact_bt">
-                                <a href="{{ route('cart.add', $product->id) }}">Add to cart</a>
+                                <a href="{{ route('cart.add', $product->id) }}">->Keranjang</a>
                             </div>
                             <h4 class="price_text">
-                                Price <span style="color: #f7c17b">$</span> 
+                                Harga <span style="color: #f7c17b">Rp</span> 
                                 <span style="color: #325662">{{ number_format($product->price, 2) }}</span>
                             </h4>
                         </div>

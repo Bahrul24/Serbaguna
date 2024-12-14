@@ -64,8 +64,8 @@
             <div class="row">
                 <!-- About Us -->
                 <div class="col-md-4 mb-4">
-                    <h4 class="text-uppercase">About Us</h4>
-                    <p>We provide high-quality cycles designed to meet your needs and style. Join us for an amazing cycling experience.</p>
+                    <h4 class="text-uppercase">Seputar Sumber Alam</h4>
+                    <p>Sumber Alam dimulai dengan satu tujuan: mempermudah hidup Anda. Dari bahan pokok hingga produk kebutuhan rumah tangga, kami selalu ada untuk memastikan setiap belanjaan Anda lengkap, berkualitas, dan terjangkau.</p>
                 </div>
 
                 <!-- Quick Links -->
@@ -74,7 +74,7 @@
 
                 <!-- Contact Us -->
                 <div class="col-md-4 mb-4">
-                    <h4 class="text-uppercase">Contact Us</h4>
+                    <h4 class="text-uppercase">Hubungi Kami</h4>
                     <p><i class="fa fa-map-marker"></i> 123 Cycle Street, Cityname</p>
                     <p><i class="fa fa-phone"></i> +1 234 567 890</p>
                     <p><i class="fa fa-envelope"></i> info@cycle.com</p>
@@ -93,7 +93,7 @@
 
         <!-- Copyright Section -->
         <div class="copyright_section">
-            <p>Copyright © 2019 All Rights Reserved By Cycle.</p>
+            <p>Copyright © 2024 All Rights Reserved By SumberAlam.</p>
         </div>
 
         <!-- Livewire Scripts -->

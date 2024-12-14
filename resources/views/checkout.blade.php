@@ -34,11 +34,11 @@
                                     </div>
                                 </td>
                                 <td class="text-right align-middle p-4">
-                                    ${{ number_format($item->price, 2) }}
+                                    Rp {{ number_format($item->price, 0, ',', '.') }}
                                 </td>
                                 <td class="align-middle p-4">{{ $item->quantity }}</td>
                                 <td class="text-right align-middle p-4">
-                                    ${{ number_format($item->price * $item->quantity, 2) }}
+                                    Rp {{ number_format($item->price * $item->quantity, 0, ',', '.') }}
                                 </td>
                             </tr>
                         @endforeach
@@ -49,7 +49,7 @@
             {{-- Total Pembayaran --}}
             <div class="d-flex justify-content-between mt-4">
                 <h4>Total Pembayaran:</h4>
-                <h4>${{ number_format($total, 2) }}</h4>
+                <h4>Rp {{ number_format($total, 0, ',', '.') }}</h4>
             </div>
 
             {{-- Formulir untuk Checkout --}}

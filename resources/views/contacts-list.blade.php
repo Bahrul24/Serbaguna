@@ -12,12 +12,12 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
+                <th>Nama</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Message</th>
-                <th>Submitted At</th>
-                <th>Actions</th>
+                <th>Pesan</th>
+                <th>Diserahkan Pada</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>

@@ -36,11 +36,11 @@
                                         </div>
                                     </td>
                                     <td class="text-right align-middle p-4">
-                                        ${{ number_format($item->price, 2) }}
+                                        Rp {{ number_format($item->price, 0, ',', '.') }}
                                     </td>
                                     <td class="align-middle p-4">{{ $item->quantity }}</td>
                                     <td class="text-right align-middle p-4">
-                                        ${{ number_format($item->price * $item->quantity, 2) }}
+                                        Rp {{ number_format($item->price * $item->quantity, 0, ',', '.') }}
                                     </td>
                                     <td class="text-center align-middle px-0">
                                         <a href="{{ route('cart.remove', $item->product_id) }}" class="text-danger" title="Hapus">×</a>
@@ -62,4 +62,4 @@
     </div>
 </div>
 
-@endsection  
+@endsection

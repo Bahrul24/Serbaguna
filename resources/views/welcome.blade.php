@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indomie Lovers</title>
+    <title>Sumber Alam</title>
 
     <!-- Meta Tags -->
     <meta name="keywords" content="Indomie, makanan favorit, mie instan">
@@ -118,8 +118,8 @@
                     <div class="container">
                         <div class="row align-items-center">
                             <div class="col-md-6">
-                                <h1 class="banner-title">Indomie Lovers</h1>
-                                <p class="banner-text">Nikmati berbagai rasa favorit Anda. Ayo pesan sekarang!</p>
+                                <h1 class="banner-title">Sumber Alam    </h1>
+                                <p class="banner-text">Belanja Hemat, Hidup Lebih Nyaman</p>
                                 @auth
                                 <a href="{{ url('/dashboard') }}" class="btn btn-custom btn-dashboard">Dashboard</a>
                                 @else

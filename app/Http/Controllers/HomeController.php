@@ -245,7 +245,7 @@ class HomeController extends Controller
     }
 
     public function processCheckout(Request $request)
-{
+    {
     $validated = $request->validate([
         'address' => 'required|string|max:255',
     ]);
@@ -261,10 +261,10 @@ class HomeController extends Controller
 
     $orderDetails = "Pemesanan baru:\n";
     foreach ($cartItems as $item) {
-        $orderDetails .= "Produk: {$item->product->name}, Jumlah: {$item->quantity}, Harga: " . number_format($item->price, 2) . "\n";
+        $orderDetails .= "Produk: {$item->product->name}, Jumlah: {$item->quantity}, Harga: Rp " . number_format($item->price, 0, ',', '.') . "\n";
     }
     $orderDetails .= "\nAlamat Pengiriman: {$request->address}\n";
-    $orderDetails .= "Total Pembayaran: $" . number_format($total, 2);
+    $orderDetails .= "Total Pembayaran: Rp " . number_format($total, 0, ',', '.');
 
     // Nomor WhatsApp tujuan
     $whatsAppNumber = '+6283861293242';  // Ganti dengan nomor WhatsApp yang sesuai
@@ -272,40 +272,41 @@ class HomeController extends Controller
 
     // Redirect ke WhatsApp API
     return redirect("https://wa.me/{$whatsAppNumber}?text={$whatsAppMessage}");
-}
-
-public function storeContact(Request $request)
-{
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|email|max:255',
-        'phone' => 'required|string|max:15',
-        'message' => 'required|string|max:1000',
-    ]);
-
-    Contact::create($request->all());
-    return redirect()->back()->with('success', 'Your message has been submitted successfully.');
-}
-
-public function listContacts()
-{
-    $contacts = Contact::all(); // Ambil semua data kontak
-    return view('contacts-list', compact('contacts'));
-}
-
-public function deleteContact($id)
-{
-    // Cari data kontak berdasarkan ID
-    $contact = Contact::findOrFail($id);
-
-    // Hapus data kontak
-    $contact->delete();
-
-    // Redirect kembali ke halaman daftar kontak dengan pesan sukses
-    return redirect()->route('contact.list')->with('success', 'Contact has been deleted successfully.');
-}
+    }
 
 
-}
+    public function storeContact(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|string|max:15',
+            'message' => 'required|string|max:1000',
+        ]);
+
+        Contact::create($request->all());
+        return redirect()->back()->with('success', 'Your message has been submitted successfully.');
+    }
+
+    public function listContacts()
+    {
+        $contacts = Contact::all(); // Ambil semua data kontak
+        return view('contacts-list', compact('contacts'));
+    }
+
+    public function deleteContact($id)
+    {
+        // Cari data kontak berdasarkan ID
+        $contact = Contact::findOrFail($id);
+
+        // Hapus data kontak
+        $contact->delete();
+
+        // Redirect kembali ke halaman daftar kontak dengan pesan sukses
+        return redirect()->route('contact.list')->with('success', 'Contact has been deleted successfully.');
+    }
+
+
+    }
 
 
