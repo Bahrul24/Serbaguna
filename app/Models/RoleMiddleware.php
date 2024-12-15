@@ -11,7 +11,7 @@ class RoleMiddleware
     public function handle(Request $request, Closure $next, $role)
     {
         $user = JWTAuth::user();
-        if ($user && $user->role !== $role) {
+        if ($user && !$user->hasRole($role)) {
             return response()->json(['error' => 'Forbidden'], 403);
         }
         return $next($request);

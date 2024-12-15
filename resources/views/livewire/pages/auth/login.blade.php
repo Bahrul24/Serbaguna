@@ -69,11 +69,10 @@ new #[Layout('layouts.guest')] class extends Component
 
         <!-- Tombol Login Google -->
         <div class="flex items-center justify-center mt-4">
-        <a href="{{ route('login.google') }}" class="px-6 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+        <a href="{{ route('login.google') }}" class="px-6 py-2" style="background-color: #e68a00; hover:bg-[#cc7a00]; color: white; border-radius: 0.5rem; focus:outline-none; focus:ring-2; focus:ring-[#cc7a00]; focus:ring-offset-2;">
             <!-- Gambar Logo Google -->
             <img src="{{ asset('images/google.png') }}" alt="Google Logo" class="inline-block w-6 h-6 mr-2">
             {{ __('Login with Google') }}
         </a>
-        </div>
     </form>
 </div>

@@ -306,6 +306,7 @@ class HomeController extends Controller
         return redirect()->route('contact.list')->with('success', 'Contact has been deleted successfully.');
     }
 
+    
 
     }
 

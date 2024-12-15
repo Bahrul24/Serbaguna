@@ -12,7 +12,6 @@ class ProductController extends Controller
     public function __construct()
     {
         $this->middleware('auth:api'); // Pastikan pengguna sudah terautentikasi
-        $this->middleware('auth:api');
         $this->middleware('role:admin')->only(['store', 'update', 'destroy']); // Hanya admin yang bisa CRUD produk
     }
 
@@ -61,5 +60,7 @@ class ProductController extends Controller
         $product->delete();
         return response()->json(['message' => 'Product deleted']);
     }
+
+    
 }
 

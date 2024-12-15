@@ -19,3 +19,5 @@ use App\Http\Controllers\AuthController;
 Route::post('login', [AuthController::class, 'login']); // Endpoint login
 Route::apiResource('products', ProductController::class); // Endpoint CRUD Produk
 Route::put('products/{id}', [ProductController::class, 'update']);
+
+

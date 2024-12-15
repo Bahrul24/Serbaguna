@@ -43,9 +43,12 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
         return [];
     }
 
+    // Pastikan metode hasRole ada di model User
     public function hasRole($role)
     {
-        return $this->roles->contains('name', $role);
+        return $this->roles()->where('name', $role)->exists();
     }
+
+    
 
 }
