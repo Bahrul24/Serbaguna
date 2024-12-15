@@ -75,17 +75,10 @@
                 <!-- Contact Us -->
                 <div class="col-md-4 mb-4">
                     <h4 class="text-uppercase">Hubungi Kami</h4>
-                    <p><i class="fa fa-map-marker"></i> 123 Cycle Street, Cityname</p>
-                    <p><i class="fa fa-phone"></i> +1 234 567 890</p>
-                    <p><i class="fa fa-envelope"></i> info@cycle.com</p>
-                    
-                    <!-- Social Media -->
-                    <div class="social_icons">
-                        <a href="#" class="text-white"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="text-white"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="text-white"><i class="fa fa-instagram"></i></a>
-                        <a href="#" class="text-white"><i class="fa fa-linkedin"></i></a>
-                    </div>
+                    <p><i class="fa fa-map-marker"></i>Desa komplang dusun Winong RT 6 RW 4. Kecamatan Paron kab Ngawi</p>
+                    <p><i class="fa fa-phone"></i>+62 984 8931 8741</p>
+                    <p><i class="fa fa-envelope"></i>sumberalam17@gmail.com</p>
+                   
                 </div>
             </div>
         </div>

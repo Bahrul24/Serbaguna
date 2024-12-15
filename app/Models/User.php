@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Spatie\Permission\Traits\HasRoles; // Import HasRoles trait
+use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable implements JWTSubject, MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles; // Tambahkan HasRoles
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     protected $fillable = [
         'name',
@@ -27,19 +28,28 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
 
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
     ];
+
+    /**
+     * Set the user's password.
+     *
+     * @param  string  $password
+     * @return void
+     */
+    public function setPasswordAttribute($password)
+    {
+        // Hash password before saving it to the database
+        $this->attributes['password'] = Hash::make($password);
+    }
 
     // Implementasi kontrak JWTSubject
     public function getJWTIdentifier()
     {
-        // ID unik untuk user yang akan digunakan oleh JWT
         return $this->getKey();
     }
 
     public function getJWTCustomClaims()
     {
-        // Anda bisa menambahkan klaim khusus di sini jika diperlukan
         return [];
     }
 
@@ -48,7 +58,5 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
     {
         return $this->roles()->where('name', $role)->exists();
     }
-
-    
-
 }
+
