@@ -267,7 +267,7 @@ class HomeController extends Controller
     $orderDetails .= "Total Pembayaran: Rp " . number_format($total, 0, ',', '.');
 
     // Nomor WhatsApp tujuan
-    $whatsAppNumber = '+6283861293242';  // Ganti dengan nomor WhatsApp yang sesuai
+    $whatsAppNumber = '+6282257151994';  // Ganti dengan nomor WhatsApp yang sesuai
     $whatsAppMessage = urlencode($orderDetails);  // Mengubah pesan menjadi URL-encoded
 
     // Redirect ke WhatsApp API
@@ -305,8 +305,6 @@ class HomeController extends Controller
         // Redirect kembali ke halaman daftar kontak dengan pesan sukses
         return redirect()->route('contact.list')->with('success', 'Contact has been deleted successfully.');
     }
-
-    
 
     }
 

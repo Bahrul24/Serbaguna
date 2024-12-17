@@ -17,6 +17,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('avatar')->nullable(); // Untuk menyimpan URL avatar pengguna
+            $table->boolean('is_active')->default(true); // Status pengguna
+            $table->timestamp('last_login_at')->nullable(); // Waktu login terakhir
+            $table->string('role')->default('user'); // Role pengguna, default sebagai "user"
             $table->rememberToken();
             $table->timestamps();
         });

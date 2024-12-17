@@ -9,7 +9,6 @@ use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable implements JWTSubject, MustVerifyEmail
 {
@@ -30,17 +29,7 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * Set the user's password.
-     *
-     * @param  string  $password
-     * @return void
-     */
-    public function setPasswordAttribute($password)
-    {
-        // Hash password before saving it to the database
-        $this->attributes['password'] = Hash::make($password);
-    }
+    // Hapus metode setPasswordAttribute untuk menghilangkan hashing
 
     // Implementasi kontrak JWTSubject
     public function getJWTIdentifier()
@@ -59,4 +48,3 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
         return $this->roles()->where('name', $role)->exists();
     }
 }
-

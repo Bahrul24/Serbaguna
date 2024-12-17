@@ -39,11 +39,14 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+            
         ],
 
         'api' => [
             'driver' => 'jwt', // Menambahkan guard api dengan driver jwt
             'provider' => 'users',
+            'hash' => false,
+
         ],
     ],
 

@@ -79,7 +79,7 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
     
-    
+
     
 // Menggunakan file auth.php untuk rute terkait otentikasi
 require __DIR__.'/auth.php';
