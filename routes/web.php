@@ -57,7 +57,7 @@ Route::post('/contact/submit', [HomeController::class, 'storeContact'])->name('c
 Route::get('/contact/list', [HomeController::class, 'listContacts'])->name('contact.list');
 Route::delete('/contact/{id}', [HomeController::class, 'deleteContact'])->name('contact.delete');
 
-// Membuat Admid
+// Membuat Admin
 Route::get('/make-admin', [HomeController::class, 'makeAdmin']);
 
 // Login Google
