@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Trashed Products</h1>
+    <h1>Arsip Produk</h1>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -27,13 +27,13 @@
                         <form action="{{ route('products.forceDelete', $product->id) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Delete Permanently</button>
+                            <button type="submit" class="btn btn-danger btn-sm">Hapus Permanen</button>
                         </form>
                     </td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="4" class="text-center">Tidak ada produk di Trash.</td>
+                    <td colspan="4" class="text-center">Tidak ada produk di Arsip.</td>
                 </tr>
             @endforelse
         </tbody>
