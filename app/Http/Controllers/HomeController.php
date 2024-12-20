@@ -25,9 +25,17 @@ class HomeController extends Controller
 
         return "User dengan ID 1 telah menjadi admin.";
     }
-    // Method for the Home page
+
+    public function trashed()
+    {
+        $products = Product::onlyTrashed()->paginate(10); // Mengambil produk yang telah dihapus (soft delete)
+        return view('manage-products', compact('products')); // Pastikan view ini ada
+    }
+
+
     public function index()
     {
+        
         return view('index'); // Make sure the `index.blade.php` exists in the `resources/views` folder
     }
 
@@ -173,9 +181,9 @@ class HomeController extends Controller
     public function deleteProduct($id)
     {
         $product = Product::findOrFail($id);
-        $product->delete();
+        $product->delete(); // Soft delete
 
-        return redirect()->route('products.manage')->with('success', 'Product deleted successfully.');
+        return redirect()->route('products.manage')->with('success', 'Product moved to trash.');
     }
 
     public function manageProducts()
@@ -305,6 +313,39 @@ class HomeController extends Controller
         // Redirect kembali ke halaman daftar kontak dengan pesan sukses
         return redirect()->route('contact.list')->with('success', 'Contact has been deleted successfully.');
     }
+
+    public function archiveProduct($id)
+    {
+        $product = Product::findOrFail($id);
+        $product->update(['is_archived' => true]); // Tambahkan kolom is_archived jika belum ada
+
+        return redirect()->route('products.manage')->with('success', 'Product archived successfully.');
+    }
+
+    public function unarchiveProduct($id)
+    {
+        $product = Product::findOrFail($id);
+        $product->update(['is_archived' => false]);
+
+        return redirect()->route('products.manage')->with('success', 'Product unarchived successfully.');
+    }
+
+    public function restoreProduct($id)
+    {
+        $product = Product::withTrashed()->findOrFail($id);
+        $product->restore(); // Pulihkan data
+
+        return redirect()->route('products.manage')->with('success', 'Product restored successfully.');
+    }
+
+    public function forceDeleteProduct($id)
+    {
+        $product = Product::withTrashed()->findOrFail($id);
+        $product->forceDelete(); // Hapus secara permanen
+
+        return redirect()->route('products.manage')->with('success', 'Product deleted permanently.');
+    }
+
 
     }
 

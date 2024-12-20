@@ -67,6 +67,12 @@ Route::middleware(['web'])->group(function () {
     Route::view('dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard');
 });
 
+Route::get('/products', [HomeController::class, 'index'])->name('products.index');
+Route::get('/products/archived', [HomeController::class, 'archived'])->name('products.archived');
+Route::get('/products/trashed', [HomeController::class, 'trashed'])->name('products.trashed');
+
+Route::put('/products/{id}/restore', [HomeController::class, 'restoreProduct'])->name('products.restore');
+Route::delete('/products/{id}/force-delete', [HomeController::class, 'forceDeleteProduct'])->name('products.forceDelete');
 
 
 // Halaman Dashboard (dengan middleware auth dan verified)

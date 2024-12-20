@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     // Nama tabel jika berbeda
     protected $table = 'products';
@@ -17,4 +18,6 @@ class Product extends Model
 
     // Mengizinkan pengaturan timestamps
     public $timestamps = true;
+
+    protected $dates = ['deleted_at'];
 }

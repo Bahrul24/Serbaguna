@@ -11,6 +11,13 @@
         @endif
     </div>
 
+    <!-- Navigasi Kategori Produk -->
+    <ul class="nav nav-tabs mb-3">
+        <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('products.trashed') ? 'active' : '' }}" href="{{ route('products.trashed') }}">Arsip</a>
+        </li>
+    </ul>
+
     @if(auth()->user()->hasRole('admin'))
         <table class="table table-striped table-hover">
             <thead>
