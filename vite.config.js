@@ -9,6 +9,12 @@ export default defineConfig({
                 'resources/js/app.js',
             ],
             refresh: true,
+
         }),
     ],
+
+    server: {
+        host: "10.253.0.63"
+      },
+   
 });
